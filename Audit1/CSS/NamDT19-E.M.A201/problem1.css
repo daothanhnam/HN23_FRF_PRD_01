@@ -1,0 +1,12 @@
+ul { 
+    padding: 20px;
+    margin: 20px;
+}
+ul > li > a { 
+    background-color: blue;
+    padding: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+    color: yellow;
+    font-size: 30px;
+}

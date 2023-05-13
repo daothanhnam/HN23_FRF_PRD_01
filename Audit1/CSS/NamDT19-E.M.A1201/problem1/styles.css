@@ -1,0 +1,55 @@
+/* WRITE YOUR CODE BELOW HERE */
+@font-face {
+  font-family: "Serif Font";
+  src: url("./fonts/josefinslab-bold-webfont.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Sans-serif Font";
+  src: url("./fonts/Lovato-Light-webfont.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+header > h1 {
+  text-align: center;
+}
+section > h2 {
+  font-size: 40px;
+  margin: 48px 0 17px 0;
+}
+
+section > p {
+  letter-spacing: 4px;
+  word-spacing: 10px;
+}
+
+section > p > a {
+  outline: none;
+}
+section > p > a:link,
+a:visited {
+  color: rgb(210, 105, 30);
+}
+a:hover {
+  text-decoration: none;
+}
+a:active {
+  color: #ee7125;
+}
+
+nav {
+  color: #fff;
+  padding: 1rem;
+  align-items: center;
+}
+nav > ul > li {
+  border: 1px solid rgb(210, 105, 30);
+  text-decoration: none;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+}
+nav > ul > li > a {
+  text-decoration: none;
+}

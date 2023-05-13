@@ -1,0 +1,22 @@
+.main {
+  height: 50%;
+  width: 50%;
+  margin: 0px auto;
+}
+.main > p > span {
+  font-size: 150%;
+  color: red;
+}
+.main > p > span > a {
+  text-decoration: underline;
+}
+.main > p > span > a:visited {
+  color: green;
+}
+.main > p > span > a:hover {
+  color: orange;
+}
+tr:nth-child(even) {
+  background-color: #333;
+  color: white;
+}

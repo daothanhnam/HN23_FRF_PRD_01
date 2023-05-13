@@ -1,0 +1,8 @@
+.main {
+  border: 5px solid black;
+  padding: 1em;
+  height: 200px;
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+}

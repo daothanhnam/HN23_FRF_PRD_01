@@ -1,0 +1,16 @@
+.main {
+  height: 20%;
+  width: 20%;
+  margin: 0px auto;
+}
+.style {
+  color: red;
+}
+
+.list > ul > li {
+  list-style: none;
+}
+
+.list > ul > li {
+  border-bottom: 1px solid grey;
+}

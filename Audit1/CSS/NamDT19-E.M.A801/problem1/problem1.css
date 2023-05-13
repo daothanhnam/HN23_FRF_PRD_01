@@ -1,0 +1,16 @@
+.box{
+    background-image: url(./balloons.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    border: 5px solid black ;
+    background-position: right center ;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0px auto ;
+    padding: 10px;
+}
+.box > h2 { 
+    background-color: rgba(113, 113, 113, 0.485);
+    color: white; 
+    padding: 5px ;
+}

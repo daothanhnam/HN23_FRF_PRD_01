@@ -1,0 +1,15 @@
+.box {
+  border: 5px solid #000;
+  width: 400px;
+  margin-bottom: 1em;
+  overflow: hidden;
+}
+
+.box1 {
+  height: 100px;
+}
+
+.box2 {
+  height: 100px;
+  overflow: visible;
+}

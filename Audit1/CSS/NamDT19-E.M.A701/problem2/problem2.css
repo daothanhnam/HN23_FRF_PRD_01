@@ -1,0 +1,15 @@
+.box {
+  box-sizing: border-box;
+  width: 300px;
+  border: 2px solid black;
+}
+
+.inner {
+  box-sizing: border-box;
+  border-radius: 10px;
+  width: 60%;
+  padding: 15px;
+  background-color: purple;
+  color: white;
+  text-align: center;
+}

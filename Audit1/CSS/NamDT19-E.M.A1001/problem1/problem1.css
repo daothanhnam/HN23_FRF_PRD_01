@@ -1,0 +1,18 @@
+.container {
+  border: 5px solid lightblue;
+   width: 410px;
+  height: 210px;
+  margin: 0px auto;
+}
+.box {
+  border: 5px solid #000;
+  width: 400px;
+  height: 200px;
+  
+}
+.box > img {
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
+  width: 100%;
+}
