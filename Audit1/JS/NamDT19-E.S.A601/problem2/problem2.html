@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Object basics: Task 2</title>
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <section class="preview"></section>
+  </body>
+  <script>
+    // Add your code here
+    let artist = {
+      name: "Son Tung MT-P",
+      nationality: "Vietnam",
+      genre: "Pop",
+      debut: 2015,
+      songs: [
+        { name: "Con mua ngang qua", released: 2012 },
+        { name: "Hay trao cho anh", released: 2018 },
+      ],
+    };
+
+    let firstSong = artist.songs[0];
+    let mostSuccessfulSong = artist.songs[1];
+    
+    let info = `The Vietnamese pop star ${artist.name} has been active since ${artist.debut}. His/her first song, ${firstSong.name}, was released in ${firstSong.released}. His/her song ${mostSuccessfulSong.name} is the most successful by far.`;
+
+    // Don't edit the code below here!
+
+    const section = document.querySelector("section");
+    let para1 = document.createElement("p");
+    para1.textContent = info;
+    section.appendChild(para1);
+  </script>
+</html>
