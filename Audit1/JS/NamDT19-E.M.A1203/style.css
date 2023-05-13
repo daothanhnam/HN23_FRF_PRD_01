@@ -1,0 +1,31 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.image {
+  padding: 40px;
+  border-radius: 10px;
+}
+
+#generate-btn {
+  margin-top: 50px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #2ecc71;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
