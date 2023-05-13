@@ -1,0 +1,11 @@
+.main > p {
+  margin: 0.5rem 0;
+}
+.main > ul:first-of-type {
+  border: 1px solid orange;
+  width: 500px;
+}
+.main > ul {
+  border: 1px solid purple;
+  width: 500px;
+}

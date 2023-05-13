@@ -1,0 +1,55 @@
+@import url("http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900");
+
+:root {
+  --color-white: #ffffff;
+  --color-darkblue: #1b1b32;
+  --color-grey: #f3f4f5;
+  --color-darkblue-alpha: rgba(27, 27, 50, 0.8);
+  --color-green: #37af65;
+  --color-button: #74b048;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+  background: no-repeat url(./background.jpg);
+  background-size: 100% 100%;
+}
+
+h1 {
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+p {
+  font-size: 1.125rem;
+}
+
+h1,
+p {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+
+input button,
+select,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  border: none;
+}

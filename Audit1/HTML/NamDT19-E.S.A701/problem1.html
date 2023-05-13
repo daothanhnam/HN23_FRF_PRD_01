@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <header class="header">
+          <h1 class="text-center">FA Survey Form</h1>
+          <p class="description text-center">
+            Thank you for taking the time to help us improve the platform
+          </p>
+        </header>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            class="form-control"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <!-- Email  -->
+        <div class="form-group">
+          <label for="name">Email</label>
+          <input
+            type="email"
+            name="Email"
+            id="Email"
+            class="form-control"
+            placeholder="Enter your name"
+            required
+          />
+        </div>
+        <!-- Age -->
+        <div class="form-group">
+          <label for="name">Age</label>
+          <input
+            type="text"
+            name="Age"
+            id="Age"
+            class="form-control"
+            placeholder="Age"
+            required
+          />
+        </div>
+        <!-- Current role -->
+        <div class="form-group">
+          <label for="role"
+            >Which options best describes your current role?
+          </label>
+          <select name="role" id="role">
+            <option value="Intern">Intern</option>
+            <option value="Fresher">Fresher</option>
+            <option value="Junior">Junior</option>
+            <option value="">Seninor</option>
+          </select>
+        </div>
+        <!-- Recommend to friend -->
+        <div class="form-choice">
+          <label for="choice">Would you recommend FA to a friend</label>
+          <br />
+
+          <input type="radio" id="choice" />
+          <label for="choice" class="input-radio">Definitely</label>
+          <br />
+          <input type="radio" id="choice" />
+          <label for="choice" class="input-radio">Maybe</label>
+          <br />
+          <input type="radio" id="choice" />
+          <label for="choice" class="input-radio">Not sure</label>
+        </div>
+
+        <!-- What would you like to see improved -->
+        <div class="form-choice">
+          <label for="pick">What would you like to see improved</label>
+          <br />
+          <input type="checkbox" id="pick" />
+          <label for="pick">Front-end Projects</label>
+          <br />
+          <input type="checkbox" id="pick" />
+          <label for="pick">Back-end Projects</label>
+          <br />
+          <input type="checkbox" id="pick" />
+          <label for="pick">AI</label>
+          <br />
+          <input type="checkbox" id="pick" />
+          <label for="pick">Machine Learning</label>
+          <br />
+          <input type="checkbox" id="pick" />
+          <label for="pick">Soft Skills</label>
+          <br />
+          <input type="checkbox" id="pick" />
+          <label for="pick">Presentation Skills</label>
+        </div>
+
+        <!-- Suggestions -->
+        <div>
+          <label for="texarea">Any comment suggestions?</label>
+
+          <textarea  id="texarea" cols="30" rows="10" class="input-textarea">Enter your comment </textarea>
+        </div>
+        <!-- Submit-button -->
+        <button class="submit-button">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

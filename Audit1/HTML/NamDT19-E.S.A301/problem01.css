@@ -1,0 +1,7 @@
+.main > h2{
+    color: purple;
+}
+.main > p{
+    color: gray;
+    margin: 0.5rem 0 ;
+}

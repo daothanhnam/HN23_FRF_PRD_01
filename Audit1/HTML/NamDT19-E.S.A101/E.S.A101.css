@@ -1,0 +1,15 @@
+.main{
+   border: 1px solid black;
+   
+   width: 500px;
+   height: 500px;
+   
+   padding:40px 150px 20px 40px ;
+   box-shadow: 5px 10px 8px #888888;
+
+
+}
+.center > p > a {
+   text-decoration: none; 
+   color: black;
+}
