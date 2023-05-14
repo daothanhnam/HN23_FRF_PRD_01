@@ -1,35 +1,30 @@
 const images = ["./images/img1.jpg", "./images/img2.png", "./images/img3.png"];
 let index = 0;
- 
+
 // Add your code here
 // Task 1
 const imageContainer = document.querySelector(".img-container");
 const backBtn = document.querySelector(".back");
 const nextBtn = document.querySelector(".next");
 
-
-backBtn.addEventListener('click', function() {
+backBtn.addEventListener("click", function () {
   // Add your code here
   // Task 3.1
-  backBtn.addEventListener("click", function () {
-    index--;
-    if (index < 0) {
-      index = 0;
-    }
-    renderImage();
-  });
+  index--;
+  if (index < 0) {
+    index = 0;
+  }
+  renderImage();
 });
 
-nextBtn.addEventListener('click', function() {
+nextBtn.addEventListener("click", function () {
   // Add your code here
   // Task 3.2
-  nextBtn.addEventListener("click", function () {
-    index++;
-    if (index >= images.length) {
-      index = images.length - 1;
-    }
-    renderImage();
-  });
+  index++;
+  if (index >= images.length) {
+    index = images.length - 1;
+  }
+  renderImage();
 });
 
 // Add your code here
