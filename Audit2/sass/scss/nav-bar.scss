@@ -1,0 +1,27 @@
+nav {
+  background-color: $gray-1;
+  display: flex;
+  justify-content: space-between;
+
+  ul.nav-menu-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    display: inline-block;
+    padding: 12px 24px;
+    padding-bottom: 10 px;
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+
+    &:hover {
+      background-color: $gray-2;
+      border-bottom-color: $primary-color;
+    }
+  }
+}
