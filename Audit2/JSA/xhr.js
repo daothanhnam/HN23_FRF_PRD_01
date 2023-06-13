@@ -71,7 +71,6 @@ getData(USER_URL, (error, users) => {
           }
           posts[postIndex].comments = comments;
           render(users);
-          // console.log(comments);
         });
       });
     });
@@ -90,11 +89,14 @@ function render(arr) {
       ${user.posts
         .map(
           (post) =>
-            `<li>
-        <h3>${post.title}<h3>
-        <ol>
-        ${post.comments.map((comment) => <li>${comment.name}</li>).join("")}
-        </ol>
+            `
+        <li>
+          <h3>${post.title}<h3>
+          <ol>
+            ${post?.comments
+              ?.map((comment) => `<li>${comment.name}</li>`)
+              .join("")}
+          </ol>
         </li>`
         )
         .join("")}
