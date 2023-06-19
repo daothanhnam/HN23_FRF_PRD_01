@@ -48,20 +48,21 @@ function getData(url, callback) {
 
   xhr.send();
 }
-
 getData(USER_URL, (error, users) => {
   if (error) {
     console.log(error);
     return;
   }
+  let totalPosts = 0;
+  let count = 0;
   users.forEach((user, i) => {
     getData(`${USER_URL}/${user.id}/posts`, (postError, posts) => {
       if (postError) {
         console.log(postError);
         return;
       }
-
       users[i].posts = posts;
+      totalPosts += posts.length;
 
       users[i].posts.forEach((post, postIndex) => {
         getData(`${POST_URL}/${post.id}/comments`, (commentError, comments) => {
@@ -70,7 +71,11 @@ getData(USER_URL, (error, users) => {
             return;
           }
           posts[postIndex].comments = comments;
-          render(users);
+          count++;
+          if (count === totalPosts) {
+            render(users);
+          }
+          // console.log(comments);
         });
       });
     });
