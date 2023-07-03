@@ -9,7 +9,7 @@ h1 {
 }
 
 .image-container {
-  display: flex;
+  display: none;
   justify-content: space-between;
   margin-top: 50px;
 }

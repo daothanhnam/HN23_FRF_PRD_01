@@ -2,7 +2,7 @@ const generateBtn = document.getElementById("generate-btn");
 const image1 = document.getElementById("image1");
 const image2 = document.getElementById("image2");
 const image3 = document.getElementById("image3");
-
+const imageContainer = document.querySelector(".image-container");
 const theImages = [
   {
     src: "https://i.pinimg.com/564x/c6/be/a3/c6bea3433fa5d69f1c9b1880fe0e82d8.jpg",
@@ -35,10 +35,12 @@ const theImages = [
     height: "300",
   },
 ];
+
 generateBtn.addEventListener("click", () => {
-  const random1 = Math.floor(Math.random() * 6);
-  const random2 = Math.floor(Math.random() * 6);
-  const random3 = Math.floor(Math.random() * 6);
+  imageContainer.style.display = "flex";
+  const random1 = Math.floor(Math.random() * theImages.length);
+  const random2 = Math.floor(Math.random() * theImages.length);
+  const random3 = Math.floor(Math.random() * theImages.length);
 
   image1.src = theImages[random1].src;
   image1.width = theImages[random1].width;
