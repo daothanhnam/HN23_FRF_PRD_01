@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Adding React to the website</title>
+  </head>
+
+  <body>
+    <h1>Add ReactJS in 1 minute</h1>
+
+    <p>This page demonstrates using React with no building tool</p>
+
+    <p>ReactJS is loaded as a script tag</p>
+
+    <hr />
+
+    <!-- We will put our ReactJS component inside this div -->
+
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <script type="text/babel">
+      // STATE
+
+      class AcademyBrand extends React.Component {
+        // statefull component
+
+        // constructor - hàm khởi tạo đối tượng cho một class component
+
+        constructor(props) {
+          
+          super(props);
+
+          this.state = {
+            brandName: "Fsoft Academy",
+
+            adress: "17 Duy Tan",
+
+            totalStudent: 1000,
+
+            showTotalStudent: false,
+
+            conuntRender: 0,
+          };
+
+          // this.changeBrandName = this.changeBrandName.bind(this);
+        }
+
+        changeBrandName = () => {
+          this.setState({ brandName: "FPT Corp" });
+        };
+        changeTotalStudent = (total) => {
+          this.setState((prevState) => ({
+            totalStudent: prevState.totalStudent + total,
+          }));
+        };
+
+        toggleShowTotal = () => {
+          this.setState((prevState) => ({
+            showTotalStudent: !prevState.showTotalStudent,
+          }));
+          this.conuntRender();
+        };
+        conuntRender = () => {
+          this.setState((prevState) => ({
+            conuntRender: (prevState.conuntRender += 1),
+          }));
+        };
+
+        render() {
+          const isShowTotal = this.state.showTotalStudent;
+          let detail;
+
+          if (isShowTotal) {
+            detail = <p>{`Tong so hoc vien :${this.state.totalStudent}`}</p>;
+          } else {
+            detail = <p>{`Ban khong co quyen xem tong so hoc vien `}</p>;
+          }
+          return (
+            <div>
+              <h1>
+                {this.state.brandName} - Render : {this.state.conuntRender}
+              </h1>
+
+              <p>{`Dia chi hoc vien : ${this.state.adress}`}</p>
+              <ShowTotal
+                isShow={this.state.showTotalStudent}
+                totalStudent={this.state.totalStudent}
+              />
+
+              <button type="button" onClick={this.changeBrandName}>
+                Change Brand Name
+              </button>
+              <br />
+              <button type="button" onClick={() => this.changeTotalStudent(1)}>
+                Change Total Student
+              </button>
+              <br />
+              <button type="button" onClick={this.toggleShowTotal}>
+                Toggler Show total
+              </button>
+            </div>
+          );
+        }
+      }
+      const ShowTotal = (props) => {
+        const { isShow, totalStudent } = props;
+        return (
+          <div>
+            {isShow ? (
+              <p> {`Tong so hoc vien: ${totalStudent}`}</p>
+            ) : (
+              <p> {`Ban khong co quyen xem tong so hoc vien`}</p>
+            )}
+          </div>
+        );
+      };
+
+      ReactDOM.render(
+        React.createElement(AcademyBrand),
+
+        document.getElementById("root")
+      );
+
+      //### END STATE
+
+      //   //## class component
+
+      //   // class HelloComponent extends React.Component {
+
+      //   //   render() {
+
+      //   //     return React.createElement("h2", undefined, "Hello ReactJS");
+
+      //   //   }
+
+      //   // }
+
+      //   //## functional component
+
+      //   const HelloComponent = () => {
+
+      //     const name = "name";
+
+      //     const persons = { name: "fsoft", age: 30 };
+
+      //     // return React.createElement("div", undefined, [
+
+      //     //   React.createElement("h3", undefined, "Hello ReactJS Top"),
+
+      //     //   React.createElement("h3", undefined, "Hello ReactJS Center"),
+
+      //     //   React.createElement("h3", undefined, "Hello ReactJS Bottom"),
+
+      //     // ]);
+
+      //     return (
+
+      //       <div
+
+      //         className="demo"
+
+      //         // nClick={() => alert("abc")}
+
+      //       >
+
+      //         <h2>{name}</h2>
+
+      //         <hr />
+
+      //         <Welcome
+
+      //           academyName="Fsoft acedemy"
+
+      //           academyAdress="17 duy tan"
+
+      //           colorProps="red"
+
+      //         >
+
+      //           <h2 style={{ color: "red" }}>ABC</h2>
+
+      //         </Welcome>
+
+      //         <hr />
+
+      //         <Welcome
+
+      //           academyName="FPT CORP"
+
+      //           academyAdress="1 pham van bach"
+
+      //           colorProps="orange"
+
+      //         >
+
+      //           <h2>BCD</h2>
+
+      //         </Welcome>
+
+      //         <hr />
+
+      //         <h3 style={{ color: "red", fontSize: "2rem" }}>Hello ReactJS 1</h3>
+
+      //         <h3>Hello ReactJS 2</h3>
+
+      //         <h3>Hello ReactJS 3</h3>
+
+      //       </div>
+
+      //     );
+
+      //   };
+
+      //   const Welcome = (props) => {
+
+      //     const { academyName, academyAdress, colorProps, children } = props;
+
+      //     return (
+
+      //       <div style={{ border: "2px solid green" }}>
+
+      //         {children}
+
+      //         <h3 style={{ color: colorProps }}>
+
+      //           Welcome to {props.academyName} at {props.academyAdress}
+
+      //         </h3>
+
+      //       </div>
+
+      //     );
+
+      //   };
+
+      //   ReactDOM.render(
+
+      //     React.createElement(HelloComponent),
+
+      //     document.getElementById("root")
+
+      //   );
+    </script>
+  </body>
+</html>
