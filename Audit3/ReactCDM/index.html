@@ -37,102 +37,115 @@
     <script type="text/babel">
       // STATE
 
-      class AcademyBrand extends React.Component {
-        // statefull component
+      // class AcademyBrand extends React.Component {
+      //   // statefull component
 
-        // constructor - hàm khởi tạo đối tượng cho một class component
+      //   // constructor - hàm khởi tạo đối tượng cho một class component
 
-        constructor(props) {
-          
-          super(props);
+      //   constructor(props) {
+      //     super(props);
 
-          this.state = {
-            brandName: "Fsoft Academy",
+      //     this.state = {
+      //       brandName: "Fsoft Academy",
 
-            adress: "17 Duy Tan",
+      //       adress: "17 Duy Tan",
 
-            totalStudent: 1000,
+      //       totalStudent: 1000,
 
-            showTotalStudent: false,
+      //       showTotalStudent: false,
 
-            conuntRender: 0,
-          };
+      //       conuntRender: 0,
+      //     };
 
-          // this.changeBrandName = this.changeBrandName.bind(this);
-        }
+      //     // this.changeBrandName = this.changeBrandName.bind(this);
+      //   }
 
-        changeBrandName = () => {
-          this.setState({ brandName: "FPT Corp" });
-        };
-        changeTotalStudent = (total) => {
-          this.setState((prevState) => ({
-            totalStudent: prevState.totalStudent + total,
-          }));
-        };
+      //   changeBrandName = () => {
+      //     this.setState({ brandName: "FPT Corp" });
+      //   };
+      //   changeTotalStudent = (total) => {
+      //     this.setState((prevState) => ({
+      //       totalStudent: prevState.totalStudent + total,
+      //     }));
+      //   };
 
-        toggleShowTotal = () => {
-          this.setState((prevState) => ({
-            showTotalStudent: !prevState.showTotalStudent,
-          }));
-          this.conuntRender();
-        };
-        conuntRender = () => {
-          this.setState((prevState) => ({
-            conuntRender: (prevState.conuntRender += 1),
-          }));
-        };
+      //   toggleShowTotal = () => {
+      //     this.setState((prevState) => ({
+      //       showTotalStudent: !prevState.showTotalStudent,
+      //     }));
+      //     this.conuntRender();
+      //   };
+      //   conuntRender = () => {
+      //     this.setState((prevState) => ({
+      //       conuntRender: (prevState.conuntRender += 1),
+      //     }));
+      //   };
 
-        render() {
-          const isShowTotal = this.state.showTotalStudent;
-          let detail;
+      //   render() {
+      //     const isShowTotal = this.state.showTotalStudent;
+      //     let detail;
 
-          if (isShowTotal) {
-            detail = <p>{`Tong so hoc vien :${this.state.totalStudent}`}</p>;
-          } else {
-            detail = <p>{`Ban khong co quyen xem tong so hoc vien `}</p>;
-          }
-          return (
-            <div>
-              <h1>
-                {this.state.brandName} - Render : {this.state.conuntRender}
-              </h1>
+      //     if (isShowTotal) {
+      //       detail = <p>{`Tong so hoc vien :${this.state.totalStudent}`}</p>;
+      //     } else {
+      //       detail = <p>{`Ban khong co quyen xem tong so hoc vien `}</p>;
+      //     }
+      //     return (
+      //       <div>
+      //         <h1>
+      //           {this.state.brandName} - Render : {this.state.conuntRender}
+      //         </h1>
 
-              <p>{`Dia chi hoc vien : ${this.state.adress}`}</p>
-              <ShowTotal
-                isShow={this.state.showTotalStudent}
-                totalStudent={this.state.totalStudent}
-              />
+      //         <p>{`Dia chi hoc vien : ${this.state.adress}`}</p>
+      //         <ShowTotal
+      //           isShow={this.state.showTotalStudent}
+      //           totalStudent={this.state.totalStudent}
+      //         />
 
-              <button type="button" onClick={this.changeBrandName}>
-                Change Brand Name
-              </button>
-              <br />
-              <button type="button" onClick={() => this.changeTotalStudent(1)}>
-                Change Total Student
-              </button>
-              <br />
-              <button type="button" onClick={this.toggleShowTotal}>
-                Toggler Show total
-              </button>
-            </div>
-          );
-        }
-      }
-      const ShowTotal = (props) => {
-        const { isShow, totalStudent } = props;
+      //         <button type="button" onClick={this.changeBrandName}>
+      //           Change Brand Name
+      //         </button>
+      //         <br />
+      //         <button type="button" onClick={() => this.changeTotalStudent(1)}>
+      //           Change Total Student
+      //         </button>
+      //         <br />
+      //         <button type="button" onClick={this.toggleShowTotal}>
+      //           Toggler Show total
+      //         </button>
+      //       </div>
+      //     );
+      //   }
+      // }
+      // const ShowTotal = (props) => {
+      //   const { isShow, totalStudent } = props;
+      //   return (
+      //     <div>
+      //       {isShow ? (
+      //         <p> {`Tong so hoc vien: ${totalStudent}`}</p>
+      //       ) : (
+      //         <p> {`Ban khong co quyen xem tong so hoc vien`}</p>
+      //       )}
+      //     </div>
+      //   );
+      // };
+
+      const RenderList = () => {
+        const arrColor = ["red", "blue ", "yellow ", "brown ", "green"];
         return (
           <div>
-            {isShow ? (
-              <p> {`Tong so hoc vien: ${totalStudent}`}</p>
-            ) : (
-              <p> {`Ban khong co quyen xem tong so hoc vien`}</p>
-            )}
+            <h1>Render List</h1>
+            <ul>
+              {arrColor.map((color, index) => {
+                return <li key={index}>{color}</li>;
+              })}
+            </ul>
           </div>
         );
       };
 
       ReactDOM.render(
-        React.createElement(AcademyBrand),
+        React.createElement(RenderList),
 
         document.getElementById("root")
       );
