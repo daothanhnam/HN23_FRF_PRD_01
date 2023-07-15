@@ -28,7 +28,7 @@ export class LifeCycle extends React.Component<any, lifeCycleState> {
     console.log("4.componentDidMount");
     setTimeout(() => {
       this.setState({
-        favoriteColor: "purple ",
+        favoriteColor: "purple",
       });
     }, 5000);
   }
@@ -58,7 +58,7 @@ export class LifeCycle extends React.Component<any, lifeCycleState> {
     and props was ${JSON.stringify(prevProps)}
     `);
   }
-  
+
   componentDidUpdate() {
     console.log("5.componentDidUpdate");
     const h3 = document.getElementById("element2")!;
