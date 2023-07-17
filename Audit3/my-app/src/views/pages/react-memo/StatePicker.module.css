@@ -1,0 +1,14 @@
+.select {
+  font: inherit;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  border: 2px solid #015c91;
+  background-color: #b4e1fc;
+  color: #014c91;
+}
+
+.select:focus {
+  outline: none;
+  
+}
