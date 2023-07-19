@@ -42,6 +42,7 @@ function App() {
       <StyledComponent />
       {/*End  Demo style component */}
 
+
       {/* Demo react.memo */}
       {/* <Couter />
       <hr />
