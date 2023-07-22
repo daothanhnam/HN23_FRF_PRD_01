@@ -10,6 +10,7 @@ import StatePicker from "./views/pages/react-memo/StatePicker";
 import Summary from "./views/pages/react-memo/Summary";
 import StyledComponent from "./views/pages/styled-components/StyledComponent";
 import CSSModule from "./views/pages/css-module/CSSModule";
+import UserCRUD from "./views/pages/debugging/UserCRUD";
 function App() {
   //react.memo
   const [selectedState, setSelectedState] = useState({} as ElectionState);
@@ -39,12 +40,11 @@ function App() {
   //end react.memo
   return (
     <div className="App">
-      <CSSModule></CSSModule>
+      <UserCRUD />
+      {/* <CSSModule></CSSModule> */}
       {/* Demo style component */}
       {/* <StyledComponent /> */}
       {/*End  Demo style component */}
-
-
       {/* Demo react.memo */}
       {/* <Couter />
       <hr />

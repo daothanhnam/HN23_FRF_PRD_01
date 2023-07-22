@@ -1,8 +1,8 @@
-:global(.main-content) {
+/* :global(.main-content) {
   .counter {
     border-color: aqua;
   }
-}
+} */
 .counter {
   display: flex;
   align-items: center;
