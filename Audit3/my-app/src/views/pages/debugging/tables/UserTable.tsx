@@ -28,19 +28,19 @@ const UserTable = (props: any) => (
               <td>{user.username}</td>
               <td>
                 <ActionButton
-                  title="Edit "
-                  isShow={user.isEdit}
-                  action={() => {
-                    props.editRow(user);  
-                  }}
-                />
-                <ActionButton
                   title="Delete"
                   isShow={user.isDelete}
                   action={() => {
                     props.DeleteUser(user.id);
                   }}
                   className="button muted-button"
+                />
+                <ActionButton
+                  title="Edit "
+                  isShow={user.isEdit}
+                  action={() => {
+                    props.editRow(user);
+                  }}
                 />
               </td>
             </tr>
