@@ -37,6 +37,7 @@ const Button = styled.button<ButtonProps>`
     color: ${(props) => (props.primary ? "#bf4f74" : "white")};
     background: ${(props) => (!props.primary ? "#bf4f74" : "white")};
   }
+  
 `;
 // End Demo2
 //Demo3
