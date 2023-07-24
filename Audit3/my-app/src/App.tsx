@@ -11,10 +11,15 @@ import Summary from "./views/pages/react-memo/Summary";
 import StyledComponent from "./views/pages/styled-components/StyledComponent";
 import CSSModule from "./views/pages/css-module/CSSModule";
 import UserCRUD from "./views/pages/debugging/UserCRUD";
+import { ErrorBoundaryClass } from "./views/pages/error-boundaries/errorBoundariesClass";
+import { BuggyCounter } from "./views/pages/error-boundaries/BuggyCounter";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorFallBack } from "./views/pages/error-boundaries/ErrorBoudariesFunction";
 function App() {
   //react.memo
   const [selectedState, setSelectedState] = useState({} as ElectionState);
   const [elections, setElections] = useState([] as ElectionState[]);
+  const [someKey, setSomeKey] = useState(null);
 
   useEffect(() => {
     fetch("https://5e7db521fa19eb0016519ec1.mockapi.io/elections")
@@ -40,7 +45,30 @@ function App() {
   //end react.memo
   return (
     <div className="App">
-      <UserCRUD />
+      {/* <UserCRUD /> */}
+      {/* Error Boundary function component  */}
+      <ErrorBoundary
+        FallbackComponent={ErrorFallBack}
+        onReset={() => setSomekey(null)} //reset the state of your app here
+        resetKeys={[someKey]} //reset the error boundary when "someKey" changes
+      >
+        <BuggyCounter />
+      </ErrorBoundary>
+      {/*End Error Boundary function component  */}
+      <hr />
+      <ErrorBoundaryClass>
+        <p>
+          These two counter are inside the same error boundare. If one crashed,
+          the error boundary will replace bout of them
+        </p>
+        <BuggyCounter />
+        <BuggyCounter />
+      </ErrorBoundaryClass>
+      <p>
+        These two counter are each  inside the same error boundare. If one crashed,
+        the error boundary will replace bout of them
+      </p>
+
       {/* <CSSModule></CSSModule> */}
       {/* Demo style component */}
       {/* <StyledComponent /> */}
@@ -70,3 +98,6 @@ function App() {
 }
 
 export default App;
+function setSomekey(arg0: null): void {
+  throw new Error("Function not implemented.");
+}
