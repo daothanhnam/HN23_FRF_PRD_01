@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-const EditUserForm = (props: any) => {
+const EditUser = (props: any) => {
   const [user, setUser] = useState(props.currentUser);
   useEffect(() => {
-    // setUser(props.currentUser);
-  }, [props]);
+    setUser(props.currentUser);
+  }, [props.currentUser]);
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, name } = event.target;
+  const handleInputChange = (event: any) => {
+    const { name, value } = event.target;
+
     setUser({ ...user, [name]: value });
   };
   return (
@@ -20,27 +21,24 @@ const EditUserForm = (props: any) => {
       <label htmlFor="name">Name</label>
       <input
         type="text"
-        value={user.name}
         name="name"
+        value={user.name}
         onChange={handleInputChange}
       />
-      <label htmlFor="username">User Name</label>
       <input
         type="text"
-        value={user.username}
         name="username"
+        value={user.username}
         onChange={handleInputChange}
       />
       <button>Update user</button>
       <button
-        type="button"
         onClick={() => props.setEditing(false)}
-        className="button muted-button"
+        className="button button-muted"
       >
-        Cancel user{" "}
+        Cancel
       </button>
     </form>
   );
 };
-
-export default EditUserForm;
+export default EditUser;

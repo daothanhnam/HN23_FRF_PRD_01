@@ -1,31 +1,39 @@
-import React, { Fragment, useState } from "react";
-import AddUserForm from "./forms/AddUserForm";
-import EditUserForm from "./forms/EditUserForm";
+import { Fragment, useState } from "react";
 import UserTable from "./tables/UserTable";
-import { User } from "./types/user.types";
+import AddUser from "./forms/AddUserForm";
+import EditUser from "./forms/EditUserForm";
 import "./UserCRUD.css";
 
 const UserCRUD = () => {
   const usersData = [
-    { id: 1, name: "Nam", username: "namdt20" },
-    { id: 2, name: "Hai", username: "hains6" },
-    { id: 3, name: "Chien", username: "chiennv20" },
-    { id: 4, name: "Phuong", username: "phuongl1" },
-    { id: 5, name: "Tuan", username: "tuanvq11" },
-    { id: 6, name: "Tuan Anh", username: "anhdt105" },
+     { id: 1, name: "nam", username: "namdt20", isEdit: true, isDelete: false },
+    { id: 2, name: "chien", username: "namns7", isEdit: false, isDelete: true },
+    { id: 3, name: "nam8", username: "namns8", isEdit: true, isDelete: false },
+    { id: 4, name: "nam9", username: "namns9", isEdit: false, isDelete: true },
+    {
+      id: 5,
+      name: "nam10",
+      username: "namns10",
+      isEdit: true,
+      isDelete: false,
+    },
+    {
+      id: 6,
+      name: "nam11",
+      username: "namns11",
+      isEdit: false,
+      isDelete: true,
+    },
   ];
-  const initialFormState = { id: 0, name: "", username: "" };
+  const initialFormState = { id: null, name: "", username: "" };
 
-  const [users, setUsers] = useState<User[]>(usersData);
-
-  const [currentUser, setCurrentUser] = useState<User>(initialFormState);
-
+  const [users, setUsers] = useState(usersData);
+  const [currentUser, setCurrentUser] = useState(initialFormState);
   const [editing, setEditing] = useState(false);
 
-  const editRow = (id: number) => {
+  const editRow = (user: any) => {
     setEditing(true);
-    const foundUser = users.find((user) => user.id === id);
-    setCurrentUser(foundUser as User);
+    setCurrentUser({ id: user.id, name: user.name, username: user.username });
   };
 
   const deleteUser = (userId: any) => {
@@ -37,18 +45,7 @@ const UserCRUD = () => {
     user.id = users.length + 1;
     setUsers([...users, user]);
   };
-  // const updateUser = () => {
-  //   setEditing(false);
-  //   // const editedUsers = (userList: User[]) => {
-  //   //   return userList.map((user) => {
-  //   //     if (user.id === currentUser.id) {
-  //   //       return currentUser;
-  //   //     }
-  //   //     return user;
-  //   //   });
-  //   // };
-  //   // setUsers();
-  // };
+
   const updateUser = (id: any, updatedUser: any) => {
     setEditing(false);
     setUsers(users.map((user) => (user.id === id ? updatedUser : user)));
@@ -60,27 +57,24 @@ const UserCRUD = () => {
       <div className="flex-row">
         <div className="flex-large">
           {editing ? (
-            //Edit component
             <Fragment>
               <h3>Edit user</h3>
-              <EditUserForm
+              <EditUser
                 editing={editing}
                 currentUser={currentUser}
-                updateUser={updateUser}
                 setEditing={setEditing}
+                updateUser={updateUser}
               />
             </Fragment>
           ) : (
-            //Add compoent
             <Fragment>
-              <h3>Add user </h3>
-              <AddUserForm addUser={addUser} />
+              <h3>Add user</h3>
+              <AddUser addUser={addUser} />
             </Fragment>
           )}
         </div>
         <div className="flex-large">
-          <h3>View User</h3>
-          {/* Table */}
+          <h3>View users</h3>
           <UserTable users={users} editRow={editRow} deleteUser={deleteUser} />
         </div>
       </div>
