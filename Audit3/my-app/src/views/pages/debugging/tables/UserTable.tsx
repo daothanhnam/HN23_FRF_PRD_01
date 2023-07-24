@@ -1,10 +1,20 @@
-const UserTable = (props: any) => (
+import { User } from "../types/user.types";
+
+type UserTableProps = {
+  users: {
+    id: number;
+    name: string;
+    username: string;
+  }[];
+  editRow: (id: number) => void;
+  deleteUser: (userId: any) => void;
+};
+const UserTable = ({ deleteUser, editRow, users }: UserTableProps) => (
   <table>
     <thead>
       <tr>
         <th>ID </th>
         <th>Name</th>
-
         <th>Username</th>
 
         <th>Actions</th>
@@ -12,18 +22,17 @@ const UserTable = (props: any) => (
     </thead>
 
     <tbody>
-      {props.users.length > 0 ? (
-        props.users.map((user: any) => (
+      {users.length > 0 ? (
+        users.map((user: User) => (
           <tr key={user.id}>
             <td>{user.id}</td>
             <td>{user.name}</td>
-
             <td>{user.username}</td>
 
             <td>
               <button
                 onClick={() => {
-                  props.editRow(user);
+                  editRow(user.id);
                 }}
                 className="button muted-button"
               >
@@ -32,7 +41,7 @@ const UserTable = (props: any) => (
 
               <button
                 onClick={() => {
-                  props.deleteUser(user.id);
+                  deleteUser(user.id);
                 }}
                 className="button muted-button"
               >

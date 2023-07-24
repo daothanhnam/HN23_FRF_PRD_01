@@ -3,12 +3,11 @@ import React, { useEffect, useState } from "react";
 const EditUserForm = (props: any) => {
   const [user, setUser] = useState(props.currentUser);
   useEffect(() => {
-    setUser(props.currentUser);
+    // setUser(props.currentUser);
   }, [props]);
 
-  const handleInputChange = (event: any) => {
-    const { name, value } = event.target.value;
-
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = event.target;
     setUser({ ...user, [name]: value });
   };
   return (
@@ -34,6 +33,7 @@ const EditUserForm = (props: any) => {
       />
       <button>Update user</button>
       <button
+        type="button"
         onClick={() => props.setEditing(false)}
         className="button muted-button"
       >
