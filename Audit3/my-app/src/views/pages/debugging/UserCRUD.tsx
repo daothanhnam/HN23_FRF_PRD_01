@@ -6,23 +6,35 @@ import "./UserCRUD.css";
 
 const UserCRUD = () => {
   const usersData = [
-     { id: 1, name: "nam", username: "namdt20", isEdit: true, isDelete: false },
-    { id: 2, name: "chien", username: "namns7", isEdit: false, isDelete: true },
-    { id: 3, name: "nam8", username: "namns8", isEdit: true, isDelete: false },
-    { id: 4, name: "nam9", username: "namns9", isEdit: false, isDelete: true },
+    { id: 1, name: "Nam", username: "namdt20", isEdit: true, isDelete: false },
+    { id: 2, name: "Hai", username: "hains6", isEdit: true, isDelete: false },
+    {
+      id: 3,
+      name: "Chien",
+      username: "chiennv20",
+      isEdit: true,
+      isDelete: false,
+    },
+    {
+      id: 4,
+      name: "Phuong",
+      username: "phuongl1",
+      isEdit: true,
+      isDelete: false,
+    },
     {
       id: 5,
-      name: "nam10",
-      username: "namns10",
+      name: "Tuan",
+      username: "tuanvq11",
       isEdit: true,
       isDelete: false,
     },
     {
       id: 6,
-      name: "nam11",
-      username: "namns11",
-      isEdit: false,
-      isDelete: true,
+      name: "Tuan Anh",
+      username: "anhdt105",
+      isEdit: true,
+      isDelete: false,
     },
   ];
   const initialFormState = { id: null, name: "", username: "" };

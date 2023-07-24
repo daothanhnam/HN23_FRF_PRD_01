@@ -1,8 +1,4 @@
-import React from "react";
-import styled from "styled-components";
 import ActionButton from "../../button/ActionButton";
-
-const ButtonCustom = (props: any) => <></>;
 
 const UserTable = (props: any) => (
   <table>
