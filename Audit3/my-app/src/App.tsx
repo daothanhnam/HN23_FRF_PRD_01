@@ -15,11 +15,13 @@ import { ErrorBoundaryClass } from "./views/pages/error-boundaries/errorBoundari
 import { BuggyCounter } from "./views/pages/error-boundaries/BuggyCounter";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallBack } from "./views/pages/error-boundaries/ErrorBoudariesFunction";
+import { Modal } from "./views/pages/portal/Modal";
 function App() {
   //react.memo
   const [selectedState, setSelectedState] = useState({} as ElectionState);
   const [elections, setElections] = useState([] as ElectionState[]);
   const [someKey, setSomeKey] = useState(null);
+  const [openModal, setOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
     fetch("https://5e7db521fa19eb0016519ec1.mockapi.io/elections")
@@ -45,17 +47,28 @@ function App() {
   //end react.memo
   return (
     <div className="App">
-      {/* <UserCRUD /> */}
+      <Modal open={openModal}>
+        <h2>Dialog</h2>
+        <p>Lorem ipsum dolor sit amet...</p>
+        <p>Lorem, ipsum...</p>
+        <div style={{ flex: 1 }}>
+          <button className="button" onClick={() => setOpenModal(false)}>
+            Ok
+          </button>
+        </div>
+      </Modal>
+      <button onClick={() => setOpenModal(true)}> Open dialog </button>
+      {/* <UserCRUD />
       {/* Error Boundary function component  */}
-      <ErrorBoundary
+      {/* <ErrorBoundary
         FallbackComponent={ErrorFallBack}
         onReset={() => setSomekey(null)} //reset the state of your app here
         resetKeys={[someKey]} //reset the error boundary when "someKey" changes
       >
         <BuggyCounter />
-      </ErrorBoundary>
+      </ErrorBoundary> */}
       {/*End Error Boundary function component  */}
-      <hr />
+      {/* <hr />
       <ErrorBoundaryClass>
         <p>
           These two counter are inside the same error boundare. If one crashed,
@@ -67,7 +80,7 @@ function App() {
       <p>
         These two counter are each  inside the same error boundare. If one crashed,
         the error boundary will replace bout of them
-      </p>
+      </p> */}
 
       {/* <CSSModule></CSSModule> */}
       {/* Demo style component */}
