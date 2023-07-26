@@ -1,9 +1,9 @@
 import "./App.css";
+import { ChangeEvent, Suspense, useEffect, useState } from "react";
 import { LifeCycle } from "./views/pages/life-cycle";
 import RenderList from "./views/pages/render-list";
 import Person from "./views/pages/basic-hook/Person";
 import PersonPoint from "./views/pages/basic-hook/PersonPoint";
-import { ChangeEvent, useEffect, useState } from "react";
 import { ElectionState } from "./views/pages/react-memo/Election.model";
 import Couter from "./views/pages/react-memo/Couter";
 import StatePicker from "./views/pages/react-memo/StatePicker";
@@ -16,12 +16,17 @@ import { BuggyCounter } from "./views/pages/error-boundaries/BuggyCounter";
 import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallBack } from "./views/pages/error-boundaries/ErrorBoudariesFunction";
 import { Modal } from "./views/pages/portal/Modal";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import styles from "./App.module.css";
+import { Link } from "react-router-dom";
+import Homepage from "./views/pages/react-router-dom/Homepage";
+import Aboutpage from "./views/pages/react-router-dom/Aboutpage";
+import { NavLink } from "react-router-dom";
+
 function App() {
   //react.memo
   const [selectedState, setSelectedState] = useState({} as ElectionState);
   const [elections, setElections] = useState([] as ElectionState[]);
-  const [someKey, setSomeKey] = useState(null);
-  const [openModal, setOpenModal] = useState<boolean>(false);
 
   useEffect(() => {
     fetch("https://5e7db521fa19eb0016519ec1.mockapi.io/elections")
@@ -45,9 +50,66 @@ function App() {
     setSelectedState(selecedState as ElectionState);
   };
   //end react.memo
+  const [someKey, setSomeKey] = useState(null);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
   return (
-    <div className="App">
-      <Modal open={openModal}>
+    <BrowserRouter>
+      <div className={styles.App}>
+        <header>
+          <nav className="navbar navbar-expand navbar-light bg-light">
+            <a href="#">FPT SOFTWARE </a>
+            <ul className="navbvar-nav">
+              {/* <li className="nav-item ">
+                <Link to="">Home</Link>
+              </li>
+              <li className="nav-item ">
+                <Link to="about">About </Link>
+              </li> */}
+              <li className="nav-item">
+                <NavLink
+                  to=""
+                  // className={({ isActive, isPending }) =>
+                  //   isActive ? "active-link" : ""
+                  // }
+                  style={({ isActive, isPending }) => {
+                    return {
+                      fontWeight: isActive ? "bold" : "",
+                    };
+                  }}
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="about/100/Nam"
+                  className={({ isActive, isPending }) =>
+                    isActive ? "active-link" : ""
+                  }
+                >
+                  About
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </header>
+        <main>
+          <Suspense fallback={<h2>Loading...</h2>}>
+            <Routes>
+              <Route path="*" element={<h3>Page not found</h3>}></Route>
+              <Route path="" element={<Homepage />}></Route>
+              <Route
+                path="about/:studentId/:studentName"
+                element={<Aboutpage />}
+              ></Route>
+            </Routes>
+          </Suspense>
+        </main>
+        <footer>FSoft - 17 Duy Tan </footer>
+      </div>
+
+      {/* <Modal open={openModal}>
         <h2>Dialog</h2>
         <p>Lorem ipsum dolor sit amet...</p>
         <p>Lorem, ipsum...</p>
@@ -57,7 +119,7 @@ function App() {
           </button>
         </div>
       </Modal>
-      <button onClick={() => setOpenModal(true)}> Open dialog </button>
+      <button onClick={() => setOpenModal(true)}> Open dialog </button> */}
       {/* <UserCRUD />
       {/* Error Boundary function component  */}
       {/* <ErrorBoundary
@@ -106,11 +168,11 @@ function App() {
       {/* <PersonPoint /> */}
       {/* <LifeCycle myColor="blue"/> */}
       {/* <RenderList /> */}
-    </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
-function setSomekey(arg0: null): void {
-  throw new Error("Function not implemented.");
-}
+// function setSomekey(arg0: null): void {
+//     throw new Error("Function not implemented.");
+// }

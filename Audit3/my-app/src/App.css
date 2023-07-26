@@ -1,6 +1,13 @@
 .App {
-    text-align: center;
+  text-align: center;
 }
-iframe{
-    display: none;
+iframe {
+  display: none;
+}
+.nav-item {
+  padding: 20px;
+}
+.active-link {
+  font-weight: bold;
+   
 }

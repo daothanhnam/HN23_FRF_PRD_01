@@ -1,0 +1,35 @@
+.App {
+  display: grid;
+
+  height: 100vh;
+
+  grid-template:
+    ". header ." max-content
+    ". .    ." 10px
+    ". main ." auto
+    ". .    ." 10px
+    ". footer ." max-content
+    ". .    ." 10px;
+}
+
+header {
+  grid-area: header;
+
+  border: 1px solid green;
+}
+
+main {
+  grid-area: main;
+
+  border: 1px solid blue;
+
+  padding: 15px;
+}
+
+footer {
+  grid-area: footer;
+
+  border: 1px solid brown;
+
+  text-align: center;
+}
