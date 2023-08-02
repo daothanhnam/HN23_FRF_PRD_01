@@ -114,7 +114,7 @@ export default class ReactBasicForm extends React.Component {
               type={this.state.showPassword ? "text" : "password"}
               id="current-password"
               className={`form-control ${
-                this.state.password ? "is-invalid" : ""
+                this.state.errorPassword ? "is-invalid" : ""
               }`}
               placeholder="Enter your password "
               value={this.state.password}
@@ -131,7 +131,7 @@ export default class ReactBasicForm extends React.Component {
               type={this.state.showPassword ? "text" : "password"}
               id="confirm-password"
               className={`form-control ${
-                this.state.errorEmail ? "is-invalid" : ""
+                this.state.errorConfirmPassword ? "is-invalid" : ""
               }`}
               placeholder="Re-render password "
               value={this.state.confirmPassword}

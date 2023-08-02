@@ -26,6 +26,7 @@ import UserDetail from "./views/pages/react-router-dom/UserDetail";
 import Users from "./views/pages/react-router-dom/User";
 import LoginComponent from "./views/pages/react-router-dom/LogginComponent";
 import ReactBasicForm from "./views/pages/react-form/ReactBasicForm";
+import ReactFormik from "./views/pages/react-form/ReactFormik";
 
 function App() {
   //react.memo
@@ -66,47 +67,69 @@ function App() {
       <div className={styles.App}>
         <header>
           <nav className="navbar navbar-expand navbar-light bg-light">
-            <a href="#">FPT SOFTWARE </a>
-            <ul className="navbvar-nav">
-              {/* <li className="nav-item ">
+            <a>FSOFT ACADEMY</a>
+
+            <ul className="navbar-nav">
+              {/* <li className="nav-item">
+
                 <Link to="">Home</Link>
+
               </li>
-              <li className="nav-item ">
-                <Link to="about">About </Link>
+
+              <li className="nav-item">
+
+                <Link to="about">About</Link>
+
               </li> */}
+
               <li className="nav-item">
                 <NavLink
                   to=""
                   // className={({ isActive, isPending }) =>
+
                   //   isActive ? "active-link" : ""
+
                   // }
+
                   style={({ isActive, isPending }) => {
-                    return {
-                      fontWeight: isActive ? "bold" : "",
-                    };
+                    return { fontWeight: isActive ? "bold" : "" };
                   }}
                 >
                   Home
                 </NavLink>
               </li>
+
               <li className="nav-item">
                 <NavLink
-                  to="about/100/Nam"
-                  className={({ isActive, isPending }) =>
-                    isActive ? "active-link" : ""
-                  }
+                  to="about/100/Hieu"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
                 >
                   About
                 </NavLink>
               </li>
+
               <li className="nav-item">
                 <NavLink
                   to="users"
-                  className={({ isActive, isPending }) =>
-                    isActive ? "active-link" : ""
-                  }
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
                 >
-                  User
+                  Users
                 </NavLink>
               </li>
 
@@ -114,27 +137,51 @@ function App() {
                 <NavLink
                   to="login"
                   // className={({ isActive, isPending }) =>
+
                   //   isActive ? "active-link" : ""
+
                   // }
+
                   style={({ isActive, isPending }) => {
                     return { fontWeight: isActive ? "bold" : "" };
                   }}
                 >
                   Login
                 </NavLink>
-                <li className="nav-item">
-                  <NavLink
-                    to="react-form"
-                    // className={({ isActive, isPending }) =>
-                    //   isActive ? "active-link" : ""
-                    // }
-                    style={({ isActive, isPending }) => {
-                      return { fontWeight: isActive ? "bold" : "" };
-                    }}
-                  >
-                    React Form
-                  </NavLink>
-                </li>
+              </li>
+
+              <li className="nav-item">
+                <NavLink
+                  to="react-form"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  React Form
+                </NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink
+                  to="react-formik"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  React Formik
+                </NavLink>
               </li>
             </ul>
           </nav>
@@ -162,6 +209,7 @@ function App() {
                 }
               />
               <Route path="react-form" element={<ReactBasicForm />}></Route>
+              <Route path="react-formik" element={<ReactFormik />}></Route>
             </Routes>
           </Suspense>
         </main>
@@ -178,10 +226,10 @@ function App() {
     //     </div>
     //   </Modal>
     //   <button onClick={() => setOpenModal(true)}> Open dialog </button> */}
-      // //{" "}
+      {/* // //{" "} */}
       {/* <UserCRUD />
     //   {/* Error Boundary function component  */}
-      //{" "}
+      {/* //{" "} */}
       {/* <ErrorBoundary
     //     FallbackComponent={ErrorFallBack}
     //     onReset={() => setSomekey(null)} //reset the state of your app here
@@ -189,8 +237,8 @@ function App() {
     //   >
     //     <BuggyCounter />
     //   </ErrorBoundary> */}
-      // {/*End Error Boundary function component  */}
-      //{" "}
+      {/* // End Error Boundary function component 
+      //{" "} */}
       {/* <hr />
     //   <ErrorBoundaryClass>
     //     <p>
@@ -204,12 +252,11 @@ function App() {
     //     These two counter are each  inside the same error boundare. If one crashed,
     //     the error boundary will replace bout of them
     //   </p> */}
-      // {/* <CSSModule></CSSModule> */}
+      {/* // <CSSModule></CSSModule>
       // {/* Demo style component */}
-      // {/* <StyledComponent /> */}
-      // {/*End  Demo style component */}
-      // {/* Demo react.memo */}
-      //{" "}
+      {/* // <StyledComponent /> */}
+      {/*End  Demo style component */}
+      {/* Demo react.memo */}{" "}
       {/* <Couter />
     //   <hr />
     //   <StatePicker
@@ -224,12 +271,11 @@ function App() {
     //   {selectedState.candidates && (
     //     <button onClick={reRenderHandler}>re Render</button>
     //   )} */}
-      // {/*  End Demo react.memo */}
-      // {/* <Person/> */}
-      // {/* <PersonPoint /> */}
-      // {/* <LifeCycle myColor="blue"/> */}
-      // {/* <RenderList /> */}
-      // //{" "}
+      {/*  End Demo react.memo */}
+      {/* <Person/> */}
+      {/* <PersonPoint /> */}
+      {/* <LifeCycle myColor="blue"/> */}
+      {/* <RenderList /> */}{" "}
     </BrowserRouter>
   );
 }
