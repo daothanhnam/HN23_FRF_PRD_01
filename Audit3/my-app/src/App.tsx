@@ -1,5 +1,5 @@
 import "./App.css";
-import { ChangeEvent, Suspense, useEffect, useState } from "react";
+import { ChangeEvent, Suspense, lazy, useEffect, useState } from "react";
 import { LifeCycle } from "./views/pages/life-cycle";
 import RenderList from "./views/pages/render-list";
 import Person from "./views/pages/basic-hook/Person";
@@ -13,15 +13,19 @@ import CSSModule from "./views/pages/css-module/CSSModule";
 import UserCRUD from "./views/pages/debugging/UserCRUD";
 import { ErrorBoundaryClass } from "./views/pages/error-boundaries/errorBoundariesClass";
 import { BuggyCounter } from "./views/pages/error-boundaries/BuggyCounter";
-import { ErrorBoundary } from "react-error-boundary";
+// import { ErrorBoundary } from "react-error-boundary";
 import { ErrorFallBack } from "./views/pages/error-boundaries/ErrorBoudariesFunction";
 import { Modal } from "./views/pages/portal/Modal";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import styles from "./App.module.css";
 import { Link } from "react-router-dom";
 import Homepage from "./views/pages/react-router-dom/Homepage";
 import Aboutpage from "./views/pages/react-router-dom/Aboutpage";
 import { NavLink } from "react-router-dom";
+import UserDetail from "./views/pages/react-router-dom/UserDetail";
+import Users from "./views/pages/react-router-dom/User";
+import LoginComponent from "./views/pages/react-router-dom/LogginComponent";
+import ReactBasicForm from "./views/pages/react-form/ReactBasicForm";
 
 function App() {
   //react.memo
@@ -52,6 +56,10 @@ function App() {
   //end react.memo
   const [someKey, setSomeKey] = useState(null);
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
+  const LoginComponent = lazy(
+    () => import("./views/pages/react-router-dom/LogginComponent")
+  );
 
   return (
     <BrowserRouter>
@@ -91,83 +99,137 @@ function App() {
                   About
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  to="users"
+                  className={({ isActive, isPending }) =>
+                    isActive ? "active-link" : ""
+                  }
+                >
+                  User
+                </NavLink>
+              </li>
+
+              <li className="nav-item">
+                <NavLink
+                  to="login"
+                  // className={({ isActive, isPending }) =>
+                  //   isActive ? "active-link" : ""
+                  // }
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  Login
+                </NavLink>
+                <li className="nav-item">
+                  <NavLink
+                    to="react-form"
+                    // className={({ isActive, isPending }) =>
+                    //   isActive ? "active-link" : ""
+                    // }
+                    style={({ isActive, isPending }) => {
+                      return { fontWeight: isActive ? "bold" : "" };
+                    }}
+                  >
+                    React Form
+                  </NavLink>
+                </li>
+              </li>
             </ul>
           </nav>
         </header>
         <main>
           <Suspense fallback={<h2>Loading...</h2>}>
             <Routes>
-              <Route path="*" element={<h3>Page not found</h3>}></Route>
-              <Route path="" element={<Homepage />}></Route>
+              <Route path="*" element={<h3>Not found</h3>} />
+              <Route path="" element={<Homepage />} />
               <Route
                 path="about/:studentId/:studentName"
                 element={<Aboutpage />}
-              ></Route>
+              />
+              <Route
+                path="users/*"
+                element={isLoggedIn ? <Users /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="login"
+                element={
+                  <LoginComponent
+                    isLoggedIn={isLoggedIn}
+                    setLoggedIn={setLoggedIn}
+                  />
+                }
+              />
+              <Route path="react-form" element={<ReactBasicForm />}></Route>
             </Routes>
           </Suspense>
         </main>
         <footer>FSoft - 17 Duy Tan </footer>
       </div>
-
-      {/* <Modal open={openModal}>
-        <h2>Dialog</h2>
-        <p>Lorem ipsum dolor sit amet...</p>
-        <p>Lorem, ipsum...</p>
-        <div style={{ flex: 1 }}>
-          <button className="button" onClick={() => setOpenModal(false)}>
-            Ok
-          </button>
-        </div>
-      </Modal>
-      <button onClick={() => setOpenModal(true)}> Open dialog </button> */}
+      {/* //   <Modal open={openModal}>
+    //     <h2>Dialog</h2>
+    //     <p>Lorem ipsum dolor sit amet...</p>
+    //     <p>Lorem, ipsum...</p>
+    //     <div style={{ flex: 1 }}>
+    //       <button className="button" onClick={() => setOpenModal(false)}>
+    //         Ok
+    //       </button>
+    //     </div>
+    //   </Modal>
+    //   <button onClick={() => setOpenModal(true)}> Open dialog </button> */}
+      // //{" "}
       {/* <UserCRUD />
-      {/* Error Boundary function component  */}
+    //   {/* Error Boundary function component  */}
+      //{" "}
       {/* <ErrorBoundary
-        FallbackComponent={ErrorFallBack}
-        onReset={() => setSomekey(null)} //reset the state of your app here
-        resetKeys={[someKey]} //reset the error boundary when "someKey" changes
-      >
-        <BuggyCounter />
-      </ErrorBoundary> */}
-      {/*End Error Boundary function component  */}
+    //     FallbackComponent={ErrorFallBack}
+    //     onReset={() => setSomekey(null)} //reset the state of your app here
+    //     resetKeys={[someKey]} //reset the error boundary when "someKey" changes
+    //   >
+    //     <BuggyCounter />
+    //   </ErrorBoundary> */}
+      // {/*End Error Boundary function component  */}
+      //{" "}
       {/* <hr />
-      <ErrorBoundaryClass>
-        <p>
-          These two counter are inside the same error boundare. If one crashed,
-          the error boundary will replace bout of them
-        </p>
-        <BuggyCounter />
-        <BuggyCounter />
-      </ErrorBoundaryClass>
-      <p>
-        These two counter are each  inside the same error boundare. If one crashed,
-        the error boundary will replace bout of them
-      </p> */}
-
-      {/* <CSSModule></CSSModule> */}
-      {/* Demo style component */}
-      {/* <StyledComponent /> */}
-      {/*End  Demo style component */}
-      {/* Demo react.memo */}
+    //   <ErrorBoundaryClass>
+    //     <p>
+    //       These two counter are inside the same error boundare. If one crashed,
+    //       the error boundary will replace bout of them
+    //     </p>
+    //     <BuggyCounter />
+    //     <BuggyCounter />
+    //   </ErrorBoundaryClass>
+    //   <p>
+    //     These two counter are each  inside the same error boundare. If one crashed,
+    //     the error boundary will replace bout of them
+    //   </p> */}
+      // {/* <CSSModule></CSSModule> */}
+      // {/* Demo style component */}
+      // {/* <StyledComponent /> */}
+      // {/*End  Demo style component */}
+      // {/* Demo react.memo */}
+      //{" "}
       {/* <Couter />
-      <hr />
-      <StatePicker
-        options={elections}
-        seletedId={selectedState?.id}
-        onSelectState={charSelectHander}
-      />
+    //   <hr />
+    //   <StatePicker
+    //     options={elections}
+    //     seletedId={selectedState?.id}
+    //     onSelectState={charSelectHander}
+    //   />
 
-      <hr />
-      <Summary state={selectedState} />
+    //   <hr />
+    //   <Summary state={selectedState} />
 
-      {selectedState.candidates && (
-        <button onClick={reRenderHandler}>re Render</button>
-      )} */}
-      {/*  End Demo react.memo */}
-      {/* <Person/> */}
-      {/* <PersonPoint /> */}
-      {/* <LifeCycle myColor="blue"/> */}
-      {/* <RenderList /> */}
+    //   {selectedState.candidates && (
+    //     <button onClick={reRenderHandler}>re Render</button>
+    //   )} */}
+      // {/*  End Demo react.memo */}
+      // {/* <Person/> */}
+      // {/* <PersonPoint /> */}
+      // {/* <LifeCycle myColor="blue"/> */}
+      // {/* <RenderList /> */}
+      // //{" "}
     </BrowserRouter>
   );
 }
