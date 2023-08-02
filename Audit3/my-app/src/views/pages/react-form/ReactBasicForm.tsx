@@ -28,7 +28,10 @@ export default class ReactBasicForm extends React.Component {
 
   handleConfirmPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log("ConfirmPassword", event.target.value);
-    this.setState({ confirmPassword: event.target.value });
+    this.setState({
+      confirmPassword: event.target.value,
+      errorConfirmPassword: "",
+    });
   };
 
   handleShowPassord = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -83,7 +86,8 @@ export default class ReactBasicForm extends React.Component {
           margin: "20px 0 20px ",
           padding: "15px",
         }}
-        className="container ">
+        className="container "
+      >
         <h2>Registration new user </h2>
         <form autoComplete="off" onSubmit={this.handleSubmit}>
           {/* Email address  */}
