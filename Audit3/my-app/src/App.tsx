@@ -27,6 +27,7 @@ import Users from "./views/pages/react-router-dom/User";
 import LoginComponent from "./views/pages/react-router-dom/LogginComponent";
 import ReactBasicForm from "./views/pages/react-form/ReactBasicForm";
 import ReactFormik from "./views/pages/react-form/ReactFormik";
+import { WithFetch } from "./views/pages/server-interaction/WithFetch";
 
 function App() {
   //react.memo
@@ -183,6 +184,22 @@ function App() {
                   React Formik
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  to="with-fetch"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  With fecth
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </header>
@@ -210,6 +227,7 @@ function App() {
               />
               <Route path="react-form" element={<ReactBasicForm />}></Route>
               <Route path="react-formik" element={<ReactFormik />}></Route>
+              <Route path="with-fetch" element={<WithFetch />}></Route>
             </Routes>
           </Suspense>
         </main>
@@ -281,6 +299,6 @@ function App() {
 }
 
 export default App;
-// function setSomekey(arg0: null): void {
-//     throw new Error("Function not implemented.");
-// }
+function setSomekey(arg0: null): void {
+  throw new Error("Function not implemented.");
+}
