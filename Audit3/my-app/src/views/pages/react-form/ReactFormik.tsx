@@ -38,6 +38,17 @@ export class ReactFormik extends React.Component {
     if (!values.sex) {
       error.sex = "Sex is required!";
     }
+    if (values.addressList && values.addressList.length > 0) {
+      const addressErrors: string[] = [];
+      values.addressList.forEach((address, index) => {
+        if (!address) {
+          addressErrors[index] = "Address is required";
+        }
+      });
+      if (addressErrors.length > 0) {
+        error.addressList = addressErrors;
+      }
+    }
     if (Object.keys(error).length > 0) {
       return error;
     }
@@ -177,14 +188,14 @@ export class ReactFormik extends React.Component {
                       </div>
                     )
                   )}
-                  <ErrorMessage
-                    name="addressList"
-                    component="div"
-                    className="text-danger"
-                  />
                 </div>
               )}
             </FieldArray>
+            <ErrorMessage
+              name="addressList"
+              component="div"
+              className="text-danger"
+            />
             {/* SEX */}
             <div className="form-group">
               <label htmlFor="sex" className={styles.label}>
