@@ -28,6 +28,7 @@ import LoginComponent from "./views/pages/react-router-dom/LogginComponent";
 import ReactBasicForm from "./views/pages/react-form/ReactBasicForm";
 import ReactFormik from "./views/pages/react-form/ReactFormik";
 import { WithFetch } from "./views/pages/server-interaction/WithFetch";
+import { WithAxios } from "./views/pages/server-interaction/WithAxios";
 
 function App() {
   //react.memo
@@ -200,6 +201,22 @@ function App() {
                   With fecth
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  to="with-axios"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  With Axios
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </header>
@@ -228,6 +245,7 @@ function App() {
               <Route path="react-form" element={<ReactBasicForm />}></Route>
               <Route path="react-formik" element={<ReactFormik />}></Route>
               <Route path="with-fetch" element={<WithFetch />}></Route>
+              <Route path="with-axios" element={<WithAxios />}></Route>
             </Routes>
           </Suspense>
         </main>
