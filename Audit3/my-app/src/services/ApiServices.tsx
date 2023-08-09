@@ -28,15 +28,15 @@ export default class ApiService {
   getRequest(link: string) {
     return axios.get(link);
   }
-  postRequest(link: string, data: any, headers?: any) {
-    return axios.post(link, data, { headers });
+  postRequest(link: string, data: any) {
+    return axios.post(link, data);
   }
 
-  updateRequest(link: string, data: any, headers?: any) {
-    return axios.put(link, data, { headers });
+  updateRequest(link: string, data: any) {
+    return axios.put(link, data);
   }
 
-  deleteRequest(link: string, headers?: any) {
-    return axios.delete(link, { headers });
+  deleteRequest(link: string) {
+    return axios.delete(link);
   }
 }
