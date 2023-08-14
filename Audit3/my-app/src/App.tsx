@@ -29,6 +29,10 @@ import ReactBasicForm from "./views/pages/react-form/ReactBasicForm";
 import ReactFormik from "./views/pages/react-form/ReactFormik";
 import { WithFetch } from "./views/pages/server-interaction/WithFetch";
 import { WithAxios } from "./views/pages/server-interaction/WithAxios";
+import ReactBootsrp from "./views/pages/ui-components/ReactBootsrp";
+import { RecipesBook } from "./views/pages/ui-components/RecipeBook";
+import UseContextHook from "./views/pages/context/UseContext";
+import MobxComponent from "./views/mobx/components/MobComponent";
 
 function App() {
   //react.memo
@@ -217,6 +221,70 @@ function App() {
                   With Axios
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  to="react-bootstrap"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  React Bootstrap
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="reacipe"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  Recipe
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="use-context"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  Use context
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  to="mobx"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  Mobx
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </header>
@@ -246,6 +314,10 @@ function App() {
               <Route path="react-formik" element={<ReactFormik />}></Route>
               <Route path="with-fetch" element={<WithFetch />}></Route>
               <Route path="with-axios" element={<WithAxios />}></Route>
+              <Route path="react-bootstrap" element={<ReactBootsrp />}></Route>
+              <Route path="reacipe" element={<RecipesBook />}></Route>
+              <Route path="use-context" element={<UseContextHook />}></Route>
+              <Route path="mobx" element={<MobxComponent />}></Route>
             </Routes>
           </Suspense>
         </main>
