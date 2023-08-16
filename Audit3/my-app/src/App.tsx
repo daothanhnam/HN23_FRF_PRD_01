@@ -33,6 +33,7 @@ import ReactBootsrp from "./views/pages/ui-components/ReactBootsrp";
 import { RecipesBook } from "./views/pages/ui-components/RecipeBook";
 import UseContextHook from "./views/pages/context/UseContext";
 import MobxComponent from "./views/mobx/components/MobComponent";
+import ReduxComponent from "./views/pages/redux/components/ReduxComponent";
 
 function App() {
   //react.memo
@@ -284,6 +285,22 @@ function App() {
                 >
                   Mobx
                 </NavLink>
+                </li>
+              <li className="nav-item">
+                <NavLink
+                  to="redux"
+                  // className={({ isActive, isPending }) =>
+
+                  //   isActive ? "active-link" : ""
+
+                  // }
+
+                  style={({ isActive, isPending }) => {
+                    return { fontWeight: isActive ? "bold" : "" };
+                  }}
+                >
+                  Redux
+                </NavLink>
               </li>
             </ul>
           </nav>
@@ -318,6 +335,7 @@ function App() {
               <Route path="reacipe" element={<RecipesBook />}></Route>
               <Route path="use-context" element={<UseContextHook />}></Route>
               <Route path="mobx" element={<MobxComponent />}></Route>
+              <Route path="redux" element={<ReduxComponent />}></Route>
             </Routes>
           </Suspense>
         </main>

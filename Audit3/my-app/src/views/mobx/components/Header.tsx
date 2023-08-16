@@ -8,11 +8,12 @@ const HeaderMobx = () => {
       <Toolbar className="d-flex justify-content-between">
         <Typography variant="h4"></Typography>
         <Typography variant="caption">
-          Username: {userStore.username} - <strong> </strong> {userStore.userId}
+          Username: {userStore.username} - <strong> </strong>{userStore.userId}
         </Typography>
       </Toolbar>
     </AppBar>
   );
 };
+
 
 export default HeaderMobx;
